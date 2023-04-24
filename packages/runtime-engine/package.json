@@ -35,8 +35,6 @@
     "clean:test": "jest --clearCache",
     "docs": "yarn typedoc --plugin typedoc-plugin-markdown --hideBreadcrumbs true --namedAnchors true --entryDocument index.md",
     "docs:html": "yarn typedoc --plugin none --out docs",
-    "prepare": "husky install",
-    "postinstall": "husky install",
     "prepublishOnly": "pinst --disable",
     "postpublish": "pinst --enable"
   },
@@ -59,7 +57,6 @@
     "@types/mocha": "^10.0.1",
     "debug": "^4.3.3",
     "eslint-config-prettier": "^6.0.0",
-    "husky": "^7.0.4",
     "jest": "^29.5.0",
     "jsonfile": "^6.1.0",
     "prettier": "^1.19.1",
@@ -68,11 +65,6 @@
     "typedoc": "^0.22.10",
     "typedoc-plugin-markdown": "^3.11.8",
     "typescript": "^4.5.4"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "tsdx lint"
-    }
   },
   "prettier": {
     "printWidth": 80,
