@@ -2,7 +2,10 @@
   "name": "@web3-sets/smart-contract-sets",
   "version": "0.0.0-beta.0",
   "license": "MIT",
-  "author": "Kames",
+  "author": {
+    "name": "Kames Geraghty",
+    "url": "https://kames.me"
+  },
   "main": "dist/index.js",
   "module": "dist/smart-contract-sets.esm.js",
   "typings": "dist/index.d.ts",
@@ -20,11 +23,6 @@
     "test": "dts test",
     "prebuild": "rm -rf dist/sets",
     "postbuild": "cp -R src/sets dist/sets"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "dts lint"
-    }
   },
   "prettier": {
     "printWidth": 80,

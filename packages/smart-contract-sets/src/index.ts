@@ -1,4 +1,4 @@
-export {default as PoolTogetherOptimismDeposit} from './sets/pooltogether-optimism-deposit-skeleton.json'
+export { default as PoolTogetherOptimismDeposit } from './sets/pooltogether-optimism-deposit-skeleton.json';
 
 // export {
 //   PoolTogetherOptimismDeposit
