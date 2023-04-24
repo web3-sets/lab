@@ -40,7 +40,7 @@ export function Header(props: Props) {
         <>
           <div className="flex w-full justify-between p-4">
             <LinkComponent href="/" className="flex flex-1 items-center ">
-              <span className="leading-3 text-5xl lg:-mt-2">⏣</span>
+              <span className="text-5xl leading-3 lg:-mt-2">⏣</span>
             </LinkComponent>
             <div className="">
               <UserDropdown />
@@ -48,10 +48,10 @@ export function Header(props: Props) {
           </div>
         </>
         <>
-          <div className="flex justify-between w-full">
+          <div className="flex w-full justify-between">
             <div className="flex items-center space-x-5">
               <LinkComponent className="flex items-center" href="/">
-                <span className="leading-3 text-5xl lg:-mt-2">⏣</span>
+                <span className="text-5xl leading-3 lg:-mt-2">⏣</span>
                 {/* <span className="ml-2 text-lg font-bold">{siteConfig.name}</span> */}
               </LinkComponent>
             </div>

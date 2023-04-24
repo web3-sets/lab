@@ -4,51 +4,51 @@ export default function PageHowItWorks() {
   return (
     <>
       <section className="">
-        <div className="container mx-auto flex px-5  items-center justify-center flex-col">
-          <img className="lg:w-2/6 md:w-3/6 w-5/6 mb-10 shadow-xl hover:shadow-2xl rounded-full" alt="hero" src="/story/light-graphic-10.png" />
-          <div className="text-center lg:w-2/3 w-full">
-            <h1 className="sm:text-4xl text-3xl lg:text-6xl mb-4 font-bold">How It Works</h1>
-            <p className="leading-relaxed text-xl">
+        <div className="container mx-auto flex flex-col  items-center justify-center px-5">
+          <img className="mb-10 w-5/6 rounded-full shadow-xl hover:shadow-2xl md:w-3/6 lg:w-2/6" alt="hero" src="/story/light-graphic-10.png" />
+          <div className="w-full text-center lg:w-2/3">
+            <h1 className="mb-4 text-3xl font-bold sm:text-4xl lg:text-6xl">How It Works</h1>
+            <p className="text-xl leading-relaxed">
               Web3 Sets is JSON Draft 7 schema for mapping and connecting resources across distributed and decentralized ecosystems.
             </p>
           </div>
         </div>
       </section>
-      <hr className="my-10 lg:my-20 h-2" />
+      <hr className="my-10 h-2 lg:my-20" />
       <section className="lg:py-10">
-        <div className="container px-5 mx-auto">
-          <div className="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6">
-            <div className="p-4 md:w-1/3 flex flex-col text-center items-center">
-              <div className="w-32 h-32 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-5 shrink-0">
+        <div className="container mx-auto px-5">
+          <div className="-mx-4 -mb-10 -mt-4 flex flex-wrap space-y-6 sm:-m-4 md:space-y-0">
+            <div className="flex flex-col items-center p-4 text-center md:w-1/3">
+              <div className="mb-5 inline-flex h-32 w-32 shrink-0 items-center justify-center rounded-full bg-indigo-100 text-indigo-500">
                 <img className="rounded-2xl border-2" src="/story/light-graphic-1.png" alt="mockup" />
               </div>
               <div className="grow">
-                <h2 className="text-2xl lg:text-3xl font-medium mb-3">Entities</h2>
-                <p className="leading-relaxed text-base">
+                <h2 className="mb-3 text-2xl font-medium lg:text-3xl">Entities</h2>
+                <p className="text-base leading-relaxed">
                   <span className="font-bold">Entities are the nouns of the Web3 world.</span> They are the things that exist and we can interact
                   with.
                 </p>
               </div>
             </div>
-            <div className="p-4 md:w-1/3 flex flex-col text-center items-center">
-              <div className="w-32 h-32 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-5 shrink-0">
+            <div className="flex flex-col items-center p-4 text-center md:w-1/3">
+              <div className="mb-5 inline-flex h-32 w-32 shrink-0 items-center justify-center rounded-full bg-indigo-100 text-indigo-500">
                 <img className="rounded-2xl border-2" src="/story/light-graphic-6.png" alt="mockup" />
               </div>
               <div className="grow">
-                <h2 className=" text-2xl lg:text-3xl font-medium mb-3">Conditions</h2>
-                <p className="leading-relaxed text-base">
+                <h2 className=" mb-3 text-2xl font-medium lg:text-3xl">Conditions</h2>
+                <p className="text-base leading-relaxed">
                   <span className="font-bold">Conditions are the verbs of the Web3 world.</span> They describe the actions or state an entity can be
                   in.
                 </p>
               </div>
             </div>
-            <div className="p-4 md:w-1/3 flex flex-col text-center items-center">
-              <div className="w-32 h-32 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-5 shrink-0">
+            <div className="flex flex-col items-center p-4 text-center md:w-1/3">
+              <div className="mb-5 inline-flex h-32 w-32 shrink-0 items-center justify-center rounded-full bg-indigo-100 text-indigo-500">
                 <img className="rounded-2xl border-2" src="/story/light-graphic-3.png" alt="mockup" />
               </div>
               <div className="grow">
-                <h2 className=" text-2xl lg:text-3xl font-medium mb-3">Rules</h2>
-                <p className="leading-relaxed text-base">
+                <h2 className=" mb-3 text-2xl font-medium lg:text-3xl">Rules</h2>
+                <p className="text-base leading-relaxed">
                   <span className="font-bold">Rules are the adjectives of the Web3 world.</span> They describe how entities interact and behave with
                   other entities.
                 </p>
@@ -57,9 +57,9 @@ export default function PageHowItWorks() {
           </div>
         </div>
       </section>
-      <hr className="my-10 lg:my-20 h-2" />
+      <hr className="my-10 h-2 lg:my-20" />
       <section className="content">
-        <div className="container max-w-2xl mx-auto">
+        <div className="container mx-auto max-w-2xl">
           <p>Web3 Sets is a simple approach to managing a complex system.</p>
           <p>
             Designed to be light-weight and flexible, Web3 Sets is a JSON Draft 7 schema for mapping and connecting resources across distributed and
@@ -79,8 +79,8 @@ export default function PageHowItWorks() {
       </section>
       <hr className="my-10 h-2 w-full" />
       <section className="content">
-        <div className="container max-w-2xl mx-auto">
-          <h3 className="font-bold text-4xl mb-3">Why</h3>
+        <div className="container mx-auto max-w-2xl">
+          <h3 className="mb-3 text-4xl font-bold">Why</h3>
           <p>To create complex user journeys across decentralized and distributed systems.</p>
           <p>
             Sets define <span className="font-bold">potential</span> state positions across a finite field of all Web3 resource states.
@@ -89,11 +89,11 @@ export default function PageHowItWorks() {
           <p>
             <span className="font-bold">Potential</span> state positions can be compared to <span className="font-bold">realized</span> state.
           </p>
-          <h3 className="font-bold text-4xl mb-3">Set Theory In Practice</h3>
+          <h3 className="mb-3 text-4xl font-bold">Set Theory In Practice</h3>
           <p>I&apos;m a big fan of PoolTogether, so let&apos;s make a set for the prize savings protocol.</p>
           <p>A formal description for a user depositing 100 USDC minimum into PoolTogether.</p>
           <p>The set can be simple too: one entity, one condition and one rule.</p>
-          <ul className="pl-4 list-disc mb-4">
+          <ul className="mb-4 list-disc pl-4">
             <li>
               <span className="font-bold">Entity:</span> PoolTogether V4 USDC Pool on Mainnet (chainId: 1)
             </li>
@@ -106,7 +106,7 @@ export default function PageHowItWorks() {
           </ul>
           <hr className="my-10" />
 
-          <div className="card w-[120%] -left-[10%] relative">
+          <div className="card relative -left-[10%] w-[120%]">
             <CodePreview>
               {`entities: [
   {
@@ -122,7 +122,7 @@ export default function PageHowItWorks() {
             </CodePreview>
           </div>
           <hr className="my-10" />
-          <div className="card w-[120%] -left-[10%] relative">
+          <div className="card relative -left-[10%] w-[120%]">
             <CodePreview>
               {`conditions: [
     {
@@ -146,7 +146,7 @@ export default function PageHowItWorks() {
             </CodePreview>
           </div>
           <hr className="my-10" />
-          <div className="card w-[120%] -left-[10%] relative">
+          <div className="card relative -left-[10%] w-[120%]">
             <CodePreview>
               {`rules: [
     {

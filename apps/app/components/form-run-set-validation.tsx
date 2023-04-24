@@ -61,12 +61,12 @@ export function FormRunSetValidation({ schema }: FormRunSetValidationProps) {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="flex items-center gap-4">
-      <div className="flex gap-10 w-2/3">
+      <div className="flex w-2/3 gap-10">
         <div className="mb-6 w-full">
           <label htmlFor="account" className="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
             Account <span className="mt-2 text-center text-xs text-gray-700">(Ethereum address or ENS domain)</span>
           </label>
-          <div className="flex items-center gap-2 flex-1">
+          <div className="flex flex-1 items-center gap-2">
             <input
               {...register('account')}
               type="text"

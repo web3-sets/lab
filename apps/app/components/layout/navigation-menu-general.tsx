@@ -12,11 +12,11 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from '@/components/ui/navigation-menu'
-import { turboIntegrations } from '@/data/turbo-integrations'
 import { cn } from '@/lib/utils'
 
 import { BranchColorMode } from '../shared/branch-color-mode'
 import { LinkComponent } from '../shared/link-component'
+import { turboIntegrations } from '@/data/turbo-integrations'
 
 export function NavigationMenuGeneral() {
   return (

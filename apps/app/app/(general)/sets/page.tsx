@@ -7,13 +7,13 @@ export default function PageHome() {
   return (
     <>
       <section className="">
-        <div className="container px-5 py-24 mx-auto">
-          <div className="flex flex-wrap w-full mb-20">
-            <div className="lg:w-1/2 w-full mb-6 lg:mb-0">
-              <h1 className="sm:text-3xl text-2xl font-medium mb-2 dark:text-white">A simple approach to mapping Web3</h1>
-              <div className="h-1 w-20 bg-indigo-500 rounded"></div>
+        <div className="container mx-auto px-5 py-24">
+          <div className="mb-20 flex w-full flex-wrap">
+            <div className="mb-6 w-full lg:mb-0 lg:w-1/2">
+              <h1 className="mb-2 text-2xl font-medium dark:text-white sm:text-3xl">A simple approach to mapping Web3</h1>
+              <div className="h-1 w-20 rounded bg-indigo-500"></div>
             </div>
-            <p className="lg:w-1/2 w-full leading-relaxed ">
+            <p className="w-full leading-relaxed lg:w-1/2 ">
               <span className="font-bold">Web3 Set Theory is a simple approach to mapping and connecting Web3 resources.</span> The schema is an
               entities, conditions and rules based based schema for constructing Web3 resource maps.{' '}
               <LinkComponent className="link" href="/schema">
@@ -22,7 +22,7 @@ export default function PageHome() {
               .
             </p>
           </div>
-          <div className="flex flex-wrap -m-4">
+          <div className="-m-4 flex flex-wrap">
             <CardSet
               href="/set/poolTogetherOptimismDeposit"
               name="PoolTogether USDC Deposit"

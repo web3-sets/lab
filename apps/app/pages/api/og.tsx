@@ -30,17 +30,10 @@ export default async function handler(req: NextRequest) {
             backgroundImage: 'url(https://red-effective-snake-988.mypinata.cloud/ipfs/Qma862AMNXxp5hey8HibUVQxc2SU3WWasoLhTpC41vb4Gb)',
             backgroundSize: '100% 100%',
             backgroundPosition: 'center',
-          }}>
-        </div>
+          }}></div>
         <div tw="flex flex-col w-1/2 p-10">
-          <h1
-            tw="opacity-100 text-8xl font-bold">
-            {siteConfig.name}
-          </h1>
-          <h3
-            tw="opacity-100 text-3xl text-gray-500 font-light font-primary">
-            {siteConfig.description}
-          </h3>
+          <h1 tw="opacity-100 text-8xl font-bold">{siteConfig.name}</h1>
+          <h3 tw="opacity-100 text-3xl text-gray-500 font-light font-primary">{siteConfig.description}</h3>
         </div>
       </div>
     ),
