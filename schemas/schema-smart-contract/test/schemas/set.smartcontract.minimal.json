@@ -1,0 +1,23 @@
+{
+  "id": "set-smartcontract-minimal",
+  "name": "Minimal Smart Contract Set",
+  "description": "An example of a minimal smart contract set",
+  "object": "set.smartcontract",
+  "createdAt": "2020-01-01T00:00:00+00:00",
+  "version": {
+    "major": 0,
+    "minor": 1,
+    "patch": 0
+  },
+  "keywords": ["minimal"],
+  "tags": {
+    "tag": {
+        "name": "Tag",
+        "description": "Set Tag"
+      }
+  },
+  "contentUri": "ipfs://hash",
+  "entities": [],
+  "conditions": [],
+  "rules": []
+}

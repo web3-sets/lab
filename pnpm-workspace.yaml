@@ -1,0 +1,6 @@
+packages:
+  - "apps/*"
+  - "schemas/*"
+  - "packages/*"
+overrides:
+  wagmi: 0.12.2

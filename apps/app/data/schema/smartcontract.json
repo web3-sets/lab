@@ -1,0 +1,552 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/metameta-protocol/metametasets-schema/src/set.smartcontract.schema.json",
+  "title": "Web3 Smart Contract Entity Set Schema",
+  "description": "A smart contract set schema for Web3 Set Theory protocol.",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["id", "name", "object", "version", "conditions", "entities", "rules"],
+  "properties": {
+    "id": {
+      "$ref": "#/definitions/IdentifierDefinition"
+    },
+    "name": {
+      "type": "string",
+      "description": "Name of the set.",
+      "examples": ["Basic Smart Contract Set"]
+    },
+    "object": {
+      "type": "string",
+      "pattern": "^set.smartcontract$"
+    },
+    "version": {
+      "$ref": "#/definitions/Version"
+    },
+    "keywords": {
+      "type": "array",
+      "description": "Keywords associated with the contents of the list; may be used in list discoverability",
+      "items": {
+        "type": "string",
+        "description": "A keyword to describe the contents of the list",
+        "minLength": 1,
+        "maxLength": 20,
+        "pattern": "^[\\w ]+$",
+        "examples": ["defi", "swap", "deposit"]
+      },
+      "maxItems": 20,
+      "uniqueItems": true
+    },
+    "tags": {
+      "type": "object",
+      "description": "An array of tag identifiers associated with the token; tags are defined at the list level",
+      "propertyNames": {
+        "$ref": "#/definitions/TagIdentifier"
+      },
+      "additionalProperties": {
+        "$ref": "#/definitions/TagDefinition"
+      },
+      "maxProperties": 20,
+      "examples": [
+        {
+          "savings": {
+            "name": "Savings",
+            "description": "Smart contract with savings features"
+          }
+        }
+      ]
+    },
+    "entities": {
+      "type": "array",
+      "description": "Entities in the smart contract set.",
+      "items": {
+        "$ref": "#/definitions/EntityDefinition"
+      },
+      "minItems": 0,
+      "maxItems": 16
+    },
+    "conditions": {
+      "type": "array",
+      "description": "Conditions in the smart contract set.",
+      "items": {
+        "$ref": "#/definitions/ConditionDefinition"
+      },
+      "minItems": 0,
+      "maxItems": 256
+    },
+    "rules": {
+      "type": "array",
+      "description": "Rules in the smart contract set.",
+      "items": {
+        "$ref": "#/definitions/RuleDefinition"
+      },
+      "minItems": 0,
+      "maxItems": 256
+    }
+  },
+  "definitions": {
+    "IdentifierDefinition": {
+      "type": "string",
+      "description": "Identifier",
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "EntityDefinition": {
+      "type": "object",
+      "description": "",
+      "additionalProperties": false,
+      "properties": {
+        "chainId": {
+          "type": "integer",
+          "description": "Chain ID of the EVM network",
+          "minimum": 1,
+          "examples": [1, 137, 43114]
+        },
+        "id": {
+          "type": "string",
+          "description": "The checksummed address of the smart contract on the specified chain ID",
+          "pattern": "^0x[a-fA-F0-9]{40}$",
+          "examples": ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"]
+        },
+        "name": {
+          "type": "string",
+          "description": "Entity name.",
+          "examples": ["SmartContract: PoolTogether V4"]
+        },
+        "abi": {
+          "type": ["array", "string"],
+          "description": "The ABI (Application Binary Interface) for the smart contract",
+          "oneOf": [
+            {
+              "type": "string",
+              "description": "A URI string that points to the location of the ABI file"
+            },
+            {
+              "type": "array",
+              "description": "A Solidity smart contract ABI as an array of objects",
+              "items": {
+                "type": "object",
+                "required": ["inputs", "name", "outputs", "stateMutability", "type"],
+                "properties": {
+                  "inputs": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "required": ["internalType", "name", "type"],
+                      "properties": {
+                        "internalType": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "type": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "outputs": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "required": ["internalType", "name", "type"],
+                      "properties": {
+                        "internalType": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "type": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "stateMutability": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "required": ["id", "chainId", "abi"]
+    },
+    "ConditionInputDefinition": {
+      "type": "object",
+      "description": "Input parameters used for function state type",
+      "additionalProperties": false,
+      "required": ["index", "object", "type", "value"],
+      "properties": {
+        "object": {
+          "type": "string",
+          "pattern": "^condition.input$",
+          "description": "Object identifier"
+        },
+        "index": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0
+            },
+            {
+              "type": "string",
+              "maxLength": 256
+            }
+          ],
+          "description": "Index position of the argument in the function or event signature",
+          "examples": ["0", "[1]", "[0][1]"]
+        },
+        "type": {
+          "type": "string",
+          "description": "The argument value type (address, bignumber, bytes32, bytes etc...)",
+          "oneOf": [
+            {
+              "pattern": "^address$"
+            },
+            {
+              "pattern": "^bignumber$"
+            },
+            {
+              "pattern": "^bytes32$"
+            },
+            {
+              "pattern": "^bytes$"
+            },
+            {
+              "pattern": "^string$"
+            },
+            {
+              "pattern": "^uint8$"
+            },
+            {
+              "pattern": "^uint16$"
+            },
+            {
+              "pattern": "^uint32$"
+            },
+            {
+              "pattern": "^uint64$"
+            },
+            {
+              "pattern": "^uint256$"
+            },
+            {
+              "pattern": "^int8$"
+            },
+            {
+              "pattern": "^int16$"
+            },
+            {
+              "pattern": "^int32$"
+            },
+            {
+              "pattern": "^int64$"
+            },
+            {
+              "pattern": "^int256$"
+            },
+            {
+              "pattern": "^bool$"
+            }
+          ]
+        },
+        "value": {
+          "type": "string",
+          "description": "Operator value to compare against the value in the index position"
+        }
+      }
+    },
+    "ConditionArgumentDefinition": {
+      "type": "object",
+      "description": "Definition of a tag that can be associated with a token via its identifier",
+      "additionalProperties": false,
+      "required": ["index", "type", "condition", "value"],
+      "properties": {
+        "index": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0
+            },
+            {
+              "type": "string",
+              "maxLength": 256
+            }
+          ],
+          "description": "Index position of the argument in the function or event signature",
+          "examples": ["0", "[1]", "[0][1]"]
+        },
+        "type": {
+          "type": "string",
+          "description": "The argument value type (address, bignumber, bytes32, bytes etc...)",
+          "oneOf": [
+            {
+              "pattern": "^address$"
+            },
+            {
+              "pattern": "^bignumber$"
+            },
+            {
+              "pattern": "^bytes32$"
+            },
+            {
+              "pattern": "^bytes$"
+            },
+            {
+              "pattern": "^string$"
+            },
+            {
+              "pattern": "^uint8$"
+            },
+            {
+              "pattern": "^uint16$"
+            },
+            {
+              "pattern": "^uint32$"
+            },
+            {
+              "pattern": "^uint64$"
+            },
+            {
+              "pattern": "^uint256$"
+            },
+            {
+              "pattern": "^int8$"
+            },
+            {
+              "pattern": "^int16$"
+            },
+            {
+              "pattern": "^int32$"
+            },
+            {
+              "pattern": "^int64$"
+            },
+            {
+              "pattern": "^int256$"
+            },
+            {
+              "pattern": "^bool$"
+            }
+          ]
+        },
+        "condition": {
+          "type": "string",
+          "description": "The condition applied to the argument value (eq, gt, lt etc...)",
+          "oneOf": [
+            {
+              "pattern": "^eq$"
+            },
+            {
+              "pattern": "^neq$"
+            },
+            {
+              "pattern": "^gt$"
+            },
+            {
+              "pattern": "^lt$"
+            },
+            {
+              "pattern": "^gte$"
+            },
+            {
+              "pattern": "^lte$"
+            },
+            {
+              "pattern": "^checksum$"
+            }
+          ]
+        },
+        "value": {
+          "type": "string",
+          "description": "Operator value to compare against the value in the index position"
+        }
+      }
+    },
+    "ConditionDefinition": {
+      "type": "object",
+      "description": "SmartContract Set Condition list",
+      "additionalProperties": false,
+      "required": ["id", "name", "eid", "type", "signature", "arguments"],
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/IdentifierDefinition"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the set.",
+          "examples": ["PoolTogether V4 USDC PrizePool"]
+        },
+        "eid": {
+          "$ref": "#/definitions/IdentifierDefinition"
+        },
+        "type": {
+          "type": "string",
+          "description": "Smart contract condition type",
+          "oneOf": [
+            {
+              "pattern": "^transaction$"
+            },
+            {
+              "pattern": "^log$"
+            },
+            {
+              "pattern": "^read$"
+            }
+          ],
+          "examples": ["transaction", "log", "read"]
+        },
+        "signature": {
+          "type": "string",
+          "description": "Smart contract condition type signature (function(address,uint256) or Event(address,uint256,uint256))",
+          "examples": ["functionName(address, uint256)", "Event(address,uint256,uint256)"]
+        },
+        "inputs": {
+          "type": "array",
+          "description": "Condition inputs applied to condition:function:state type",
+          "items": {
+            "$ref": "#/definitions/ConditionInputDefinition"
+          }
+        },
+        "arguments": {
+          "type": "array",
+          "description": "Condition types applied to the eid reference object",
+          "items": {
+            "$ref": "#/definitions/ConditionArgumentDefinition"
+          }
+        }
+      }
+    },
+    "RuleDefinition": {
+      "type": "object",
+      "description": "",
+      "additionalProperties": false,
+      "required": ["id", "cid", "condition"],
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/IdentifierDefinition"
+        },
+        "cid": {
+          "type": "array",
+          "description": "Condition IDs to enforce rule.",
+          "items": {
+            "$ref": "#/definitions/IdentifierDefinition"
+          },
+          "maxItems": 256,
+          "uniqueItems": true
+        },
+        "condition": {
+          "type": "array",
+          "description": "",
+          "items": {
+            "type": "string",
+            "oneOf": [
+              {
+                "pattern": "^isComplete$"
+              },
+              {
+                "pattern": "^minimumConfirmations$"
+              },
+              {
+                "pattern": "^beforeTimestamp$"
+              },
+              {
+                "pattern": "^afterTimestamp$"
+              },
+              {
+                "pattern": "^beforeBlock$"
+              },
+              {
+                "pattern": "^afterBlock$"
+              },
+              {
+                "pattern": "^minimumComplete$"
+              },
+              {
+                "pattern": "^percentageComplete$"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "TagIdentifier": {
+      "type": "string",
+      "description": "The unique identifier of a tag",
+      "minLength": 1,
+      "maxLength": 10,
+      "pattern": "^[\\w]+$",
+      "examples": ["compound", "stablecoin"]
+    },
+    "TagDefinition": {
+      "type": "object",
+      "description": "Definition of a tag that can be associated with a token via its identifier",
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the tag",
+          "pattern": "^[ \\w]+$",
+          "minLength": 1,
+          "maxLength": 20
+        },
+        "description": {
+          "type": "string",
+          "description": "A user-friendly description of the tag",
+          "pattern": "^[ \\w\\.,:]+$",
+          "minLength": 1,
+          "maxLength": 200
+        }
+      },
+      "required": ["name", "description"],
+      "examples": [
+        {
+          "name": "Stablecoin",
+          "description": "A token with value pegged to another asset"
+        }
+      ]
+    },
+    "Version": {
+      "type": "object",
+      "description": "The version of the set, used in change detection",
+      "examples": [
+        {
+          "major": 1,
+          "minor": 0,
+          "patch": 0
+        }
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "major": {
+          "type": "integer",
+          "description": "The major version of the list. Must be incremented when smart contract are removed from the list or smart contract addresses are changed.",
+          "minimum": 0,
+          "examples": [1, 2]
+        },
+        "minor": {
+          "type": "integer",
+          "description": "The minor version of the list. Must be incremented when smart contracts are added to the set.",
+          "minimum": 0,
+          "examples": [0, 1]
+        },
+        "patch": {
+          "type": "integer",
+          "description": "The patch version of the list. Must be incremented for any changes to the list.",
+          "minimum": 0,
+          "examples": [0, 1]
+        }
+      },
+      "required": ["major", "minor", "patch"]
+    }
+  }
+}

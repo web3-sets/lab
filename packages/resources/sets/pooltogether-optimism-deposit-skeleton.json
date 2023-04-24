@@ -1,0 +1,50 @@
+{
+  "id": "set.pooltogether.optimism.deposit",
+  "object": "set:smartcontract",
+  "name": "PoolTogether Optimism Deposit",
+  "description": "Deposit USDC to PoolTogether V4 on Optimism",
+  "keywords": ["pooltogether", "optimism", "usdc"],
+  "tags": {
+    "defi": {
+      "name": "DeFi",
+      "description": "Decentralized finance on the Ethereum blockchain"
+    }
+  },
+  "version": {
+    "major": 0,
+    "minor": 0,
+    "patch": 0
+  },
+  "entities": [
+    {
+      "chainId": 1,
+      "id": "0x79bc8bd53244bc8a9c8c27509a2d573650a83373",
+      "abi": "ipfs://Qmc6MHybup7ppGgUdyEcsi5jqCeTAPtcxF9wBaco56Uc1H",
+      "name": "PoolTogether USDC Prize Pool"
+    }
+  ],
+  "conditions": [
+    {
+      "id": "condition:0x79bc8bd53244bc8a9c8c27509a2d573650a83373:depositTo:gte:100000000",
+      "eid": "0x79bc8bd53244bc8a9c8c27509a2d573650a83373",
+      "name": "PoolTogether Optimism Deposit over 1 USDC",
+      "type": "transaction",
+      "signature": "depositTo(address,uint256)",
+      "arguments": [
+        {
+          "index": 1,
+          "type": "bignumber",
+          "condition": "gte",
+          "value": "100000000"
+        }
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "id": "rule.complete",
+      "condition": ["isComplete"],
+      "cid": ["condition:0x79bc8bd53244bc8a9c8c27509a2d573650a83373:depositTo:gte:100000000"]
+    }
+  ]
+}

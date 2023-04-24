@@ -1,0 +1,80 @@
+{
+  "id": "set-smartcontract-minimal",
+  "name": "Entity with Valid Metadata",
+  "object": "set.smartcontract",
+  "createdAt": "2020-01-01T00:00:00+00:00",
+  "version": {
+    "major": 0,
+    "minor": 1,
+    "patch": 0
+  },
+  "entities": [
+      {
+        "id": "entity-smart-contract",
+        "name": "SmartContract",
+        "object": "entity.smartcontract",
+        "chainId": 1,
+        "address": "0x0000000000000000000000000000000000000000",
+        "abi":[],
+        "meta": {
+            "evmModule": "0x0000000000000000000000000000000000000000",
+            "evmModuleAbiUri": "ipfs://hash",
+            "deployedAt": "14633200"
+        }
+      }
+  ],
+  "conditions": [
+    {
+        "id": "erc20-function-transfer",
+        "name": "ERC20: Transfer Function",
+        "object": "condition.smartcontract",
+        "eid": "entity-smart-contract",
+        "type": "read",
+        "signature": "calculateOdds(address,uint256,uint256)",
+        "inputs": [
+          {
+              "object": "condition.input",
+              "index": 0,
+              "type": "address",
+              "value": "ENV.WALLET.0"
+          },
+          {
+              "object": "condition.input",
+              "index": 1,
+              "type": "address",
+              "value": "ENV.DATA.BALANCE"
+          },
+          {
+              "object": "condition.input",
+              "index": 2,
+              "type": "address",
+              "value": "ENV.DATA.RANDOMNUMBER"
+          }
+      ],
+        "arguments": [
+            {
+                "object": "condition.argument",
+                "index": 1,
+                "type": "bignumber",
+                "comparator": "gte",
+                "value": "1000000000000000000"
+            }
+        ],
+        "meta": {
+            "evmModuleExecution": [
+                {
+                    "methods": ["getBalance"],
+                    "inputs": [ ["ENV.WALLET.0"] ],
+                    "outputs": [ ["ENV.DATA.BALANCE"] ]
+                },
+                {
+                  "methods": ["getRandomNumber"],
+                  "inputs": [ [] ],
+                  "outputs": [ ["ENV.DATA.RANDOMNUMBER"] ]
+              }
+            ]
+        }
+    }
+  ],
+  "rules": []
+}
