@@ -5,11 +5,11 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "go": "next build",
     "export": "next export",
     "start": "next start",
     "lint": "next lint --fix",
-    "prettier": "prettier './src' --write",
-    "prepare": "prisma generate ; wagmi generate"
+    "prettier": "prettier './src' --write"
   },
   "lint-staged": {
     "./src": [
@@ -67,8 +67,8 @@
     "@vercel/og": "^0.0.27",
     "@wagmi/chains": "^0.2.13",
     "@wagmi/cli": "^0.1.11",
-    "@web3-sets/smart-contract-schema": "workspace:0.0.0-beta.0",
     "@web3-sets/runtime-engine": "workspace:0.0.0-beta.0",
+    "@web3-sets/smart-contract-schema": "workspace:0.0.0-beta.0",
     "@web3-sets/smart-contract-sets": "workspace:0.0.0-beta.0",
     "ajv": "^8.6.1",
     "axios": "^1.2.2",
@@ -85,13 +85,13 @@
     "ky-universal": "^0.11.0",
     "lucide-react": "0.105.0-alpha.4",
     "luxon": "^3.2.1",
-    "next": "13.1.1",
+    "next": "13.3.1",
     "next-themes": "^0.2.1",
     "pino-pretty": "^9.4.0",
     "query-string": "^8.1.0",
-    "react": ">=17",
+    "react": ">=18.2.0",
     "react-copy-to-clipboard": "^5.1.0",
-    "react-dom": ">=17",
+    "react-dom": ">=18.2.0",
     "react-hook-form": "^7.43.9",
     "react-icons": "^4.7.1",
     "react-markdown": "^8.0.4",
