@@ -6,7 +6,6 @@ interface SiteConfig {
   title: string
   emoji: string
   description: string
-  previewImg: string
   localeDefault: string
   links: {
     twitter: string
@@ -20,8 +19,7 @@ export const siteConfig: SiteConfig = {
   name: 'Web3 Sets',
   title: 'Web3 Sets - Mapping distributed systems',
   emoji: '⏣',
-  description: 'Mapping distributed systems',
-  previewImg: `${SITE_CANONICAL}/preview.png`,
+  description: 'Web3 Sets is JSON Draft 7 schema for mapping resources across distributed systems.',
   localeDefault: 'en',
   links: {
     twitter: 'https://twitter.com/KamesGeraghty',
