@@ -2,10 +2,10 @@ import React from 'react'
 
 import { Address } from '@turbo-eth/core-wagmi'
 
-import TableCore from '../shared/table/table-core'
-import TimeFromEpoch from '../shared/time-from-epoch'
 import { BranchColorMode } from '../shared/branch-color-mode'
 import { LinkComponent } from '../shared/link-component'
+import TableCore from '../shared/table/table-core'
+import TimeFromEpoch from '../shared/time-from-epoch'
 
 /*
 {
@@ -147,11 +147,10 @@ export function TableWeb3SetFilteredTransaction({ data, className }: any) {
         accessor: 'id-test',
         Cell: (props: any) => (
           <div className="">
-            {console.log(props)}
             <LinkComponent href={`https://etherscan.io/tx/${props?.row?.original?.hash}`}>
               <BranchColorMode>
-                <img src="/integrations/etherscan-dark.svg" className="w-6 h-6" />
-                <img src="/integrations/etherscan-light.svg" className="w-6 h-6" />
+                <img src="/integrations/etherscan-dark.svg" className="h-6 w-6" />
+                <img src="/integrations/etherscan-light.svg" className="h-6 w-6" />
               </BranchColorMode>
             </LinkComponent>
           </div>
