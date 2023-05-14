@@ -95,22 +95,22 @@
        "description": "",
        "additionalProperties": false,
        "properties": {
+         "name": {
+           "type": "string",
+           "description": "Entity name.",
+           "examples": ["PoolTogether:v4:PrizePool:USDC"]
+         },
          "chainId": {
            "type": "integer",
            "description": "Chain ID of the EVM network",
            "minimum": 1,
            "examples": [1, 137, 43114]
          },
-         "id": {
+         "address": {
            "type": "string",
            "description": "The checksummed address of the smart contract on the specified chain ID",
            "pattern": "^0x[a-fA-F0-9]{40}$",
            "examples": ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"]
-         },
-         "name": {
-           "type": "string",
-           "description": "Entity name.",
-           "examples": ["SmartContract: PoolTogether V4"]
          },
          "abi": {
            "type": ["array", "string"],
@@ -178,7 +178,7 @@
            ]
          }
        },
-       "required": ["id", "chainId", "abi"]
+       "required": ["address", "chainId", "abi"]
      },
      "ConditionInputDefinition": {
        "type": "object",
@@ -376,7 +376,7 @@
        "type": "object",
        "description": "SmartContract Set Condition list",
        "additionalProperties": false,
-       "required": ["id", "name", "eid", "type", "signature", "arguments"],
+       "required": ["id", "name", "eid", "type", "signature", "args"],
        "properties": {
          "id": {
            "$ref": "#/definitions/IdentifierDefinition"
@@ -417,7 +417,7 @@
              "$ref": "#/definitions/ConditionInputDefinition"
            }
          },
-         "arguments": {
+         "args": {
            "type": "array",
            "description": "Condition types applied to the eid reference object",
            "items": {
@@ -430,7 +430,7 @@
        "type": "object",
        "description": "",
        "additionalProperties": false,
-       "required": ["id", "cid", "condition"],
+       "required": ["id", "cid", "condition", "range"],
        "properties": {
          "id": {
            "$ref": "#/definitions/IdentifierDefinition"
@@ -444,7 +444,20 @@
            "maxItems": 256,
            "uniqueItems": true
          },
-         "condition": {
+         "range": {
+          "type": "number",
+          "description": "Range of values to enforce rule.",
+          "minimum": 0,
+          "maximum": 100
+         },
+         "args": {
+          "type": "array",
+          "description": "Range of values to enforce rule.",
+          "items": {
+            "type": "string"
+          }
+         },
+         "operations": {
            "type": "array",
            "description": "",
            "items": {
@@ -452,9 +465,6 @@
              "oneOf": [
                {
                  "pattern": "^isComplete$"
-               },
-               {
-                 "pattern": "^minimumConfirmations$"
                },
                {
                  "pattern": "^beforeTimestamp$"
@@ -467,12 +477,6 @@
                },
                {
                  "pattern": "^afterBlock$"
-               },
-               {
-                 "pattern": "^minimumComplete$"
-               },
-               {
-                 "pattern": "^percentageComplete$"
                }
              ]
            }

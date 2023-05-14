@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "React Library",
+  "extends": "./base.json",
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": "./",
+    "outDir": "./dist",
+    "declarationDir": "./dist",
+    "declaration": true,
+    "declarationMap": true,
+    "isolatedModules": true,
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "module": "ES2022",
+    "moduleResolution": "node",
+    "jsx": "react",
+    "jsxFactory": "React.createElement",
+    "jsxFragmentFactory": "React.Fragment",
+    "resolveJsonModule": true,
+    "strict": true,
+    "paths": {
+      "abitype": ["./node_modules/abitype"],
+      "@wagmi/chains": ["./node_modules/@wagmi/chains"],
+      "@stitches/react": ["./node_modules/@stitches/react"]
+    },
+    "target": "ES6"
+  }
+}

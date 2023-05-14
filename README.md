@@ -1,20 +1,18 @@
-# ⏣ Web3 Sets - Distributed Resource Mapping
+# ⏣ Web3 Sets - Distributed Object Resource Mapping
 
 Web3 Sets is JSON Draft 7 schema for mapping resources across distributed systems.
 
-Web3 Sets is a simple approach to managing a complex system.
-
 Designed to be light-weight and flexible, Web3 Sets is a JSON Draft 7 schema for mapping and connecting resources across distributed and decentralized ecosystems.
+
+Web3 Sets is a simple approach to managing a complex system.
 
 **The approach is simple.**
 
-Everything is Entity. Entities always have predictable behaviors. Entities can be grouped into Sets. Sets can be grouped into Sets.
-
-**The approach is powerful.**
-
-The only focus is mapping inputs and outputs across distributed systems. It does not concern itself with the underlying technology or implementation details. It only cares about Entities and how to organize them.
+Everything is Entity. Entities have predictable behaviors. Entities can be grouped into Sets.
 
 **Web3 Sets draws inspiration from naive set theory.**
+
+The only focus for the Web3 Sets schema is mapping Entity objects across distributed systems. It does not concern itself with the underlying technology or implementation details. It only cares about Entity objects and how to organize them using rules and conditionals.
 
 [Naive set theory is a way of thinking about collections of objects, called sets, and the relationships between them.](https://en.wikipedia.org/wiki/Naive_set_theory)
 
@@ -49,3 +47,17 @@ pnpm build
 ## Architecture
 
 Web3 Sets is CI is managed via Turborepo - an incremental bundler and build system optimized for JavaScript and TypeScript.
+
+# Status (Updated on May 13, 2023)
+
+The [smart contract sets schema](https://github.com/web3-sets/lab/tree/main/schemas/schema-smart-contract) is in alpha status.
+
+In other words it can be tested and likely won't have any major architecture changes.
+
+**Remaining work before beta launch:**
+- [ ] EVM Runtime Engine
+    - [ ] Complete
+
+**Roadmap**
+- [ ] Verifiable Credential Sets Schema
+- [ ] Sets of Sets Schema

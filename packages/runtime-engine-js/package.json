@@ -1,0 +1,81 @@
+{
+  "name": "@web3-sets/runtime-engine-js",
+  "version": "0.0.0-beta.0",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Kames Geraghty"
+    }
+  ],
+  "type": "module",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "module": "./dist/index.js",
+      "default": "./dist/index.cjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "engines": {
+    "node": ">=12"
+  },
+  "scripts": {
+    "analyze": "size-limit --why",
+    "bench": "vitest bench --no-threads",
+    "bench:ci": "CI=true vitest bench --no-threads",
+    "build": "tsup",
+    "changeset": "changeset",
+    "changeset:release": "pnpm build && changeset publish",
+    "changeset:version": "changeset version && pnpm install --lockfile-only",
+    "clean": "rimraf node_modules",
+    "format": "rome format src/ --write",
+    "lint": "rome check .",
+    "playground": "pnpm --filter playground-browser dev",
+    "preinstall": "npx only-allow pnpm",
+    "prepublishOnly": "pnpm bun scripts/prepublishOnly.ts",
+    "prepare": "npx simple-git-hooks",
+    "test": "vitest dev --no-threads",
+    "test:cov": "vitest dev --coverage --no-threads",
+    "test:ci": "CI=true vitest --coverage --no-threads"
+  },
+  "dependencies": {
+    "@ethersproject/abi": "^5.5.0",
+    "@ethersproject/bignumber": "^5.5.0",
+    "@ethersproject/providers": "^5.5.1",
+    "@ethersproject/transactions": "^5.7.0",
+    "@types/dedent": "^0.7.0",
+    "abitype": "^0.8.3",
+    "siwe": "^1.1.6",
+    "viem": "^0.3.24",
+    "zod": "^3.21.4"
+  },
+  "devDependencies": {
+    "@actions/core": "^1.10.0",
+    "@actions/github": "^5.1.1",
+    "@changesets/changelog-github": "^0.4.5",
+    "@types/node": "^17.0.12",
+    "fs-extra": "^11.1.0",
+    "rimraf": "^4.1.2",
+    "rome": "^12.0.0",
+    "simple-git-hooks": "^2.8.1",
+    "tsconfig": "workspace:*",
+    "tsup": "^6.6.3",
+    "typescript": "^4.9.4",
+    "vite": "^4.1.4",
+    "vitest": "~0.29.2"
+  },
+  "tsup": {
+    "entry": [
+      "src/index.ts"
+    ]
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm format"
+  }
+}
