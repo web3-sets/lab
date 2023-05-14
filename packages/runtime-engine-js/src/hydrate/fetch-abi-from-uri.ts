@@ -13,7 +13,9 @@ export async function fetchAbiFromUri(uri: string): Promise<any | void> {
       }
       case 'ipfs': {
         const hash = uri.split('://')[1]
-        const res = await fetch(`https://gateway.pinata.cloud/ipfs/${hash}`)
+        const res = await fetch(
+          `https://red-effective-snake-988.mypinata.cloud/ipfs/${hash}`,
+        )
         if (res.status === 200) {
           return res.json()
         } else {

@@ -138,7 +138,6 @@ export default function SetUniswapV2Swap({ params }: any) {
 
 const SetConditions = ({ id }: any) => {
   const set = useSet(id)
-  console.log(set, 'set')
   return (
     <div className="grid grid-cols-3 gap-4">
       {set?.model?.conditions?.map((condition: any) => {

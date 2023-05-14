@@ -1,4 +1,4 @@
-import sets, { PoolTogetherOptimismDeposit } from '@web3-sets/smart-contract-sets'
+import { PoolTogetherOptimismDepositSet, StandWithCryptoSet } from '@web3-sets/smart-contract-sets'
 
 export const setDatabase = [
   {
@@ -6,7 +6,15 @@ export const setDatabase = [
     version: 'v4',
     name: 'PoolTogether USDC Deposit',
     description: 'Deposit a minimum of 10 USDC into the Optimism PrizePool.',
-    image: '/covers/set-cover-pooltogether.png',
-    model: PoolTogetherOptimismDeposit,
+    // image: '/covers/set-cover-pooltogether.png',
+    model: PoolTogetherOptimismDepositSet,
+  },
+  {
+    id: 'stand-with-crypto',
+    version: 'v1',
+    name: 'Stand With Crypto Shield Mint',
+    description: 'Mint Stand with Crypto Shield from Coinbase on the Zora platform.',
+    // image: '/covers/set-cover-pooltogether.png',
+    model: StandWithCryptoSet,
   },
 ]

@@ -1,0 +1,47 @@
+{
+  "id": "set:shield:mainnet:mint",
+  "object": "smartcontract",
+  "name": "Mint Stand with Crypto NFT by Coinbase",
+  "description": "Mint Stand with Crypto Shield from Coinbase on the Zora platform",
+  "keywords": ["defi", "shield", "coinbase"],
+  "tags": {},
+  "version": {
+    "major": 0,
+    "minor": 0,
+    "patch": 0
+  },
+  "entities": [
+    {
+        "name": "Coinbase Stand with Crypto Shield",
+        "chainId": 1,
+        "address": "0x9d90669665607f08005cae4a7098143f554c59ef",
+        "abi": "ipfs://QmWesVTzwwEUxaHkf3kbNWWPKoiFsxTxJCsubVH9V1VEeW"
+    }
+  ],
+  "conditions": [
+    {
+      "id": "condition:mint",
+      "eid": "0x9d90669665607f08005cae4a7098143f554c59ef",
+      "name": "ERC721DropProxy : Stand with Crypto Shield",
+      "type": "transaction",
+      "signature": "purchase(uint256)",
+      "args": [
+        {
+          "index": 0,
+          "type": "bignumber",
+          "condition": "gte",
+          "value": "1"
+        }
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "id": "rule:complete",
+      "cid": ["condition:mint"],
+      "operations": ["isComplete"],
+      "args": [[true]],
+      "range": [100]
+    }
+  ]
+}

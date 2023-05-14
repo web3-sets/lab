@@ -57,7 +57,6 @@ export function FormRunSetValidation({ schema }: FormRunSetValidationProps) {
     setRuntimeResults(runtimeResults)
   }
 
-  console.log(analysisAll, 'analysisAll')
   useEffect(() => {}, [analysisAll])
 
   const handleSetAccount = () => {

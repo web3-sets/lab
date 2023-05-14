@@ -22,7 +22,6 @@ export const useSetLocalState = (id: string, schema?: any) => {
 
   // Find the todo with the specified ID and update its properties
   const updateSet = (id: string, updates: Partial<Set>) => {
-    console.log('useSetLocalState', id, updates)
     setSets((prevSets) => prevSets.map((todo) => (todo.id === id ? { ...todo, ...updates } : todo)))
   }
 
