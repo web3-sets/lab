@@ -1,5 +1,6 @@
 import { conditionBigNumber } from '../conditions/condition-big-number'
 import { conditionString } from '../conditions/condition-string'
+import { conditionTuple } from '../conditions/condition-tuple'
 import { ConditionArgument, TransactionParsed } from '../types'
 import { BigNumber } from '@ethersproject/bignumber'
 import { isBigNumberish } from '@ethersproject/bignumber/lib/bignumber'
@@ -35,6 +36,13 @@ export function compareConditionArgumentToTransactionArgument(
         return conditionString(arg.condition, arg.valueFormatted, arg.input)
       case 'bignumber':
         return conditionBigNumber(arg.condition, arg.valueFormatted, arg.input)
+      case 'tuple':
+        return conditionTuple(
+          arg.condition,
+          arg.valueFormatted,
+          arg.input,
+          arg.selector,
+        )
       default:
         return false
     }

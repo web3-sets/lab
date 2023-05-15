@@ -14,7 +14,9 @@ export function injectState({ set, state }: Input): SmartContractSetHydrated {
   for (let index = 0; index < length; index++) {
     newSet.entities[index].state.raw = {
       transactions: state?.transactions?.filter(
-        (transaction) => transaction.to === newSet.entities[index].address,
+        (transaction) =>
+          transaction.to?.toLowerCase() ===
+          newSet.entities[index].address.toLowerCase(),
       ),
     }
     newSet.entities[index].state.parsed = {

@@ -1,9 +1,9 @@
 {
-  "id": "set:shield:mainnet:purchase",
+  "id": "set:rainbow:finiliar:mainnet:purchase",
   "object": "smartcontract",
-  "name": "Mint Stand with Crypto NFT by Coinbase",
-  "description": "Mint Stand with Crypto Shield from Coinbase on the Zora platform",
-  "keywords": ["defi", "shield", "coinbase"],
+  "name": "Mint Finiliar NFT by Rainbow",
+  "description": "Mint the Finiliar NFT by Rainbow",
+  "keywords": ["defi", "rainbow"],
   "tags": {},
   "version": {
     "major": 0,
@@ -12,17 +12,17 @@
   },
   "entities": [
     {
-        "name": "Coinbase Stand with Crypto Shield",
+        "name": "Rainbow Finiliar Cloud",
         "chainId": 1,
-        "address": "0x9d90669665607f08005cae4a7098143f554c59ef",
+        "address": "0xc5f18a7bf825c2b0433102da5bc79c9edfc3fa89",
         "abi": "ipfs://QmWesVTzwwEUxaHkf3kbNWWPKoiFsxTxJCsubVH9V1VEeW"
     }
   ],
   "conditions": [
     {
       "id": "condition:purchase",
-      "eid": "0x9d90669665607f08005cae4a7098143f554c59ef",
-      "name": "ERC721DropProxy : Stand with Crypto Shield",
+      "eid": "0xc5f18a7bf825c2b0433102da5bc79c9edfc3fa89",
+      "name": "ERC721DropProxy : Finiliar Cloud",
       "type": "transaction",
       "signature": "purchase(uint256)",
       "args": [

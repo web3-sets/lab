@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react'
 // import { filterTransactionsUsingSmartContractSet, isEVMStatePassingSetValidation, recursiveSetResourceFetching } from '@web3-sets/runtime-engine'
 import { EVMState, runtime } from '@web3-sets/runtime-engine-js'
 import { useForm } from 'react-hook-form'
-import { FaCheckCircle } from 'react-icons/fa'
 import { useAccount, useNetwork, useProvider } from 'wagmi'
 import * as yup from 'yup'
 
@@ -14,10 +13,7 @@ import { clientMainnet } from '@/config/evm-public-clients'
 import { etherscanAccountTransactions } from '@/integrations/etherscan/account-transactions'
 import { ButtonSIWELogin } from '@/integrations/siwe/components/button-siwe-login'
 import { useYupValidationResolver } from '@/lib/hooks/useYupValidationResolver'
-import { useSetLocalState } from '@/lib/state/set'
 import { useAnalysis } from '@/lib/state/state-analysis'
-
-import { TableWeb3SetFilteredTransaction } from './app/table-web3set-filtered-transactions'
 
 const validationSchema = yup.object({
   account: yup.string().required('Account is required'),
@@ -27,12 +23,15 @@ interface FormRunSetValidationProps {
   schema: any
 }
 
+function getAllChainIdsFromSet(set: any) {
+  return set.entities.flatMap((entity: any) => entity.chainId)
+}
+
 export function FormRunSetValidation({ schema }: FormRunSetValidationProps) {
   const resolver = useYupValidationResolver(validationSchema)
   const { handleSubmit, register, setValue, setError, reset, ...rest } = useForm({ resolver })
   const { address } = useAccount()
   const { chain } = useNetwork()
-  const provider = useProvider()
 
   // const { set, updateSet } = useSetLocalState(schema?.id)
   const { addAnalysis, analysisAll } = useAnalysis(schema?.id)
@@ -40,7 +39,13 @@ export function FormRunSetValidation({ schema }: FormRunSetValidationProps) {
   const [runtimeResults, setRuntimeResults] = useState()
   const onSubmit = async (data: any) => {
     const logs: any = []
-    const transactions: any = await etherscanAccountTransactions(chain?.id || 1, data.account)
+    let transactions: any = []
+
+    const chainIds = getAllChainIdsFromSet(schema)
+    for (const chainId of chainIds) {
+      const transactionsChains: any = await etherscanAccountTransactions(chainId, data.account)
+      transactions = [...transactions, ...transactionsChains]
+    }
     const state = {
       logs,
       transactions: transactions,
@@ -50,6 +55,7 @@ export function FormRunSetValidation({ schema }: FormRunSetValidationProps) {
       state,
       clients: [clientMainnet],
     })
+    console.log(runtimeResults)
     addAnalysis({
       id: schema?.id,
       ...runtimeResults,
@@ -121,47 +127,5 @@ export function FormRunSetValidation({ schema }: FormRunSetValidationProps) {
       </form>
       {/* <RuntimeAnalysis runtimeResults={runtimeResults} /> */}
     </>
-  )
-}
-
-const RuntimeAnalysis = ({ runtimeResults }: any) => {
-  return (
-    <section className="w-full">
-      <div className="mx-auto grid w-full max-w-screen-xl rounded-md border-2 bg-neutral-100 dark:bg-neutral-800 lg:grid-cols-12 lg:gap-8 lg:p-10 xl:gap-0">
-        {!runtimeResults?.analysis?.isSuccess ? (
-          <div className="col-span-12 flex items-center justify-between">
-            <div className="">
-              <h3 className="mb-4 text-2xl font-semibold">Run Analysis</h3>
-              <p className="text-light text-sm">To run the analysis, click the button above. The analysis will take a few seconds to complete.</p>
-            </div>
-            <FaCheckCircle className="text-gray-600" size={48} />
-          </div>
-        ) : (
-          <>
-            {runtimeResults?.analysis?.isSuccess ? (
-              <>
-                <div className="col-span-12 flex items-center justify-between">
-                  <div className="">
-                    <h3 className="mb-4 text-2xl font-semibold">Passing</h3>
-                    <p className="text-light text-sm">
-                      <span className="font-bold">The account has passed the set validation.</span> Below is a list of the transactions that were
-                      found to be valid.
-                    </p>
-                  </div>
-                  <FaCheckCircle className="text-green-600" size={32} />
-                </div>
-                <div className="col-span-12 mt-6">
-                  <TableWeb3SetFilteredTransaction data={runtimeResults?.analysis?.isSuccess} />
-                </div>
-              </>
-            ) : (
-              <div className="col-span-12">
-                <h2 className="text-2xl font-bold">Set is not passing</h2>
-              </div>
-            )}
-          </>
-        )}
-      </div>
-    </section>
   )
 }

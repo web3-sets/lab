@@ -1,0 +1,48 @@
+{
+  "id": "set:shield:mainnet:mint",
+  "object": "smartcontract",
+  "name": "Mint Disco NFT by District",
+  "description": "Mint a Disco NFT from District Labs",
+  "keywords": ["delegatable", "disco", "district-labs"],
+  "tags": {},
+  "version": {
+    "major": 0,
+    "minor": 0,
+    "patch": 0
+  },
+  "entities": [
+    {
+        "name": "DelegatableERC721Controller : Disco District NFT Minter",
+        "chainId": 1,
+        "address": "0xc81136B1f99b4bA4F6c0BddC56AB8D5EFb9E908f",
+        "abi": "ipfs://QmdX4Hh5DrKyZsfSRScGvDupS3Eajhboz85J9m9UR4o3i9"
+    }
+  ],
+  "conditions": [
+    {
+      "id": "condition:mint",
+      "eid": "0xc81136B1f99b4bA4F6c0BddC56AB8D5EFb9E908f",
+      "name": "Execute Mint",
+      "type": "transaction",
+      "signature": "invoke(tuple[])",
+      "args": [
+        {
+          "index": 0,
+          "type": "tuple",
+          "condition": "eq",
+          "selector": "[0].invocations.batch[0].authority[0].delegation.caveats[0].terms",
+          "value": "0x0000000000000000000000000000000000000000000000000000000000000001"
+        }
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "id": "rule:complete",
+      "cid": ["condition:mint"],
+      "operations": ["isComplete"],
+      "args": [[true]],
+      "range": [100]
+    }
+  ]
+}

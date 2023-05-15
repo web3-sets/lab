@@ -1,5 +1,7 @@
 'use client'
 
+import React from 'react'
+
 import { GithubIcon, Network } from 'lucide-react'
 
 import { CardSet } from '@/components/card-set'
@@ -14,8 +16,7 @@ export default function PageHome() {
           <div className="mr-auto place-self-center lg:col-span-7">
             <h1 className="mb-4 max-w-2xl text-4xl font-extrabold leading-none tracking-tight dark:text-white md:text-5xl xl:text-6xl">Web3 Sets</h1>
             <p className="mb-6 max-w-2xl font-light  leading-8 dark:text-gray-400 md:text-lg lg:mb-8 lg:text-xl">
-              Web3 Sets is JSON Draft 7 schema for mapping <br />
-              resources across distributed systems.
+              Web3 Sets is JSON Draft 7 schema for mapping resources across distributed systems and crafting beautiful user experience journeys.
             </p>
             <div className="flex items-center gap-3">
               <span className="btn btn-primary ">

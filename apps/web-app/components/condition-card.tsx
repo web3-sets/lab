@@ -14,6 +14,7 @@ interface ConditionCardProps {
     type: string
     condition: string
     value: string
+    selector: string
   }>
 }
 
@@ -31,11 +32,11 @@ export const ConditionCard = ({ className, id, eid, name, type, signature, args 
             <div key={index} className="flex items-center justify-between rounded-lg bg-neutral-100 p-4">
               <p className="text-sm font-medium text-gray-900 dark:text-white">{argument.index}</p>
               <span className="">{argument.condition}</span>
-              <p className="text-xs">
-                {argument.value}
-                <br />
-                {argument.type}
-              </p>
+              <div className="flex flex-col gap-2 text-xs">
+                <span className="">type: {argument.type}</span>
+                <span className="">value: {argument.value}</span>
+                {argument.selector && <span className="">selector: {argument.selector}</span>}
+              </div>
             </div>
           )
         })}
