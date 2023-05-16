@@ -160,7 +160,7 @@ export default function PageHowItWorks() {
             <p>The primitive is simple. But being designed for mapping complex systems.</p>
             <p>
               A set can contain entities or even other sets. Similar to the premise of set theory, that all things in the universe can be categorized,
-              web3 sets takes the position it's possible to categorize all things in the web3 universe.
+              web3 sets takes the position it&apos;s possible to categorize all things in the web3 universe.
             </p>
             <p className="">
               And by mapping the relationships between these things, we can create complex user journeys across decentralized and distributed systems.
