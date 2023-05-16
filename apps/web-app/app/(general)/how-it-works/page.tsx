@@ -59,7 +59,7 @@ export default function PageHowItWorks() {
           </div>
         </div>
       </section>
-      <section className="content my-10 lg:my-12">
+      <section className="content my-10 lg:my-6">
         <div className="container mx-auto max-w-2xl">
           <p>Web3 Sets is a simple approach to managing a complex system.</p>
           <p>
@@ -71,14 +71,12 @@ export default function PageHowItWorks() {
           <p className="font-bold">The approach is powerful.</p>
           <p>
             The only focus is mapping inputs and outputs across distributed systems. It does not concern itself with the underlying technology or
-            implementation details. It only cares about Entities and how to organize them using <span className="font-bold">informal set theory</span>
-            .
+            implementation details. It only cares about Entities and how to organize them. .
           </p>
           <p className="font-bold">Web3 Sets draws inspiration from informal set theory.</p>
           <p>Informal (i.e. naive) set theory is a way of thinking about collections of objects, called sets, and the relationships between them.</p>
         </div>
       </section>
-      <div className="w-fu opacity-30ll my-10 h-2" />
       <section className="content">
         <div className="container mx-auto max-w-2xl">
           <h3 className="mb-3 text-4xl font-bold">Why</h3>
@@ -90,7 +88,7 @@ export default function PageHowItWorks() {
           <p>
             <span className="font-bold">Potential</span> state positions can be compared to <span className="font-bold">realized</span> state.
           </p>
-          <h3 className="mb-3 text-4xl font-bold">Set Theory In Practice</h3>
+          <h3 className="mb-3 mt-4 text-2xl font-bold">Sets In Practice</h3>
           <p>As a big fan of PoolTogether, so let&apos;s make a set for the prize savings protocol.</p>
           <p>A formal description for a user depositing 100 USDC minimum into PoolTogether.</p>
           <p>The set can be simple too: one entity, one condition and one rule.</p>
@@ -157,6 +155,16 @@ export default function PageHowItWorks() {
   ],
 `}
             </CodePreview>
+          </div>
+          <div className="mt-10">
+            <p>The primitive is simple. But being designed for mapping complex systems.</p>
+            <p>
+              A set can contain entities or even other sets. Similar to the premise of set theory, that all things in the universe can be categorized,
+              web3 sets takes the position it's possible to categorize all things in the web3 universe.
+            </p>
+            <p className="">
+              And by mapping the relationships between these things, we can create complex user journeys across decentralized and distributed systems.
+            </p>
           </div>
         </div>
       </section>

@@ -2,6 +2,7 @@ import React from 'react'
 
 import classNames from 'clsx'
 import Image from 'next/image'
+import { FaGithub } from 'react-icons/fa'
 
 import { BranchIsAuthenticated } from '@/components/shared/branch-is-authenticated'
 import { siteConfig } from '@/config/site'
@@ -54,6 +55,9 @@ export function Header(props: Props) {
                 <span className="text-5xl leading-3 lg:-mt-2">⏣</span>
                 {/* <span className="ml-2 text-lg font-bold">{siteConfig.name}</span> */}
               </LinkComponent>
+              <LinkComponent href={`${siteConfig.links.github}`}>
+                <FaGithub />
+              </LinkComponent>
             </div>
             {/* <div className="flex flex-1 justify-center lg:px-10"></div> */}
 
@@ -61,8 +65,8 @@ export function Header(props: Props) {
               <LinkComponent className="menu-item" href="/how-it-works">
                 How it Works
               </LinkComponent>
-              <LinkComponent className="menu-item" href="/playground">
-                Playground
+              <LinkComponent className="menu-item" href="/development">
+                Development
               </LinkComponent>
               <LinkComponent className="btn btn-pill btn-sm btn-indigo" href="/sets">
                 Web3 Sets

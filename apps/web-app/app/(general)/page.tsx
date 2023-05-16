@@ -45,7 +45,7 @@ export default function PageHome() {
             </div>
             <div className="w-full leading-relaxed lg:w-1/2">
               <p>
-                <span className="font-bold">Web3 Sets is a simple approach to mapping and grouping Web3 systems.</span> Everything is an Entity.
+                <span className="font-bold">Web3 Sets is a simple approach to mapping distributed resource objects.</span> Everything is an Entity.
                 Entities always have predictable behaviors. Entities can be grouped into Sets.
               </p>
               <p className="">

@@ -1,1 +1,1 @@
-export {getAllChainIdsFromSet} from './get-all-chainids-from-set';
+export { getAllChainIdsFromSet } from './get-all-chainids-from-set'
