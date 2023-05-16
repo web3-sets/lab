@@ -1,7 +1,6 @@
 import * as React from 'react'
 
 import classNames from 'clsx'
-import image from 'next/image'
 
 import { LinkComponent } from './shared/link-component'
 

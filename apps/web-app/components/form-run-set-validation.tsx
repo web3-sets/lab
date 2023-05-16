@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
 // import { filterTransactionsUsingSmartContractSet, isEVMStatePassingSetValidation, recursiveSetResourceFetching } from '@web3-sets/runtime-engine'
-import { EVMState, runtime } from '@web3-sets/runtime-engine-js'
+import { EVMState, getAllChainIdsFromSet, runtime } from '@web3-sets/runtime-engine-js'
 import { useForm } from 'react-hook-form'
 import { useAccount, useNetwork, useProvider } from 'wagmi'
 import * as yup from 'yup'
@@ -21,10 +21,6 @@ const validationSchema = yup.object({
 
 interface FormRunSetValidationProps {
   schema: any
-}
-
-function getAllChainIdsFromSet(set: any) {
-  return set.entities.flatMap((entity: any) => entity.chainId)
 }
 
 export function FormRunSetValidation({ schema }: FormRunSetValidationProps) {

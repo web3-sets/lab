@@ -1,21 +1,23 @@
-import { CodePreview } from '@/components/code-preview'
+import Balancer from 'react-wrap-balancer'
 
+import { CodePreview } from '@/components/code-preview'
 export default function PageHowItWorks() {
   return (
     <>
-      <section className="">
+      <section className="my-10 lg:my-12">
         <div className="container mx-auto flex flex-col  items-center justify-center px-5">
           <img className="mb-10 w-5/6 rounded-full shadow-xl hover:shadow-2xl md:w-3/6 lg:w-2/6" alt="hero" src="/story/light-graphic-10.png" />
           <div className="w-full text-center lg:w-2/3">
             <h1 className="mb-4 text-3xl font-bold sm:text-4xl lg:text-6xl">How It Works</h1>
             <p className="text-xl leading-relaxed">
-              Web3 Sets is JSON Draft 7 schema for mapping and connecting resources across distributed and decentralized ecosystems.
+              <Balancer>
+                Web3 Sets is JSON Draft 7 schema for mapping and connecting resources across distributed and decentralized ecosystems.
+              </Balancer>
             </p>
           </div>
         </div>
       </section>
-      <hr className="my-10 h-2 lg:my-20" />
-      <section className="lg:py-10">
+      <section className="my-10 lg:my-12 lg:py-10">
         <div className="container mx-auto px-5">
           <div className="-mx-4 -mb-10 -mt-4 flex flex-wrap space-y-6 sm:-m-4 md:space-y-0">
             <div className="flex flex-col items-center p-4 text-center md:w-1/3">
@@ -57,8 +59,7 @@ export default function PageHowItWorks() {
           </div>
         </div>
       </section>
-      <hr className="my-10 h-2 lg:my-20" />
-      <section className="content">
+      <section className="content my-10 lg:my-12">
         <div className="container mx-auto max-w-2xl">
           <p>Web3 Sets is a simple approach to managing a complex system.</p>
           <p>
@@ -77,7 +78,7 @@ export default function PageHowItWorks() {
           <p>Informal (i.e. naive) set theory is a way of thinking about collections of objects, called sets, and the relationships between them.</p>
         </div>
       </section>
-      <hr className="my-10 h-2 w-full" />
+      <div className="w-fu opacity-30ll my-10 h-2" />
       <section className="content">
         <div className="container mx-auto max-w-2xl">
           <h3 className="mb-3 text-4xl font-bold">Why</h3>
@@ -90,7 +91,7 @@ export default function PageHowItWorks() {
             <span className="font-bold">Potential</span> state positions can be compared to <span className="font-bold">realized</span> state.
           </p>
           <h3 className="mb-3 text-4xl font-bold">Set Theory In Practice</h3>
-          <p>I&apos;m a big fan of PoolTogether, so let&apos;s make a set for the prize savings protocol.</p>
+          <p>As a big fan of PoolTogether, so let&apos;s make a set for the prize savings protocol.</p>
           <p>A formal description for a user depositing 100 USDC minimum into PoolTogether.</p>
           <p>The set can be simple too: one entity, one condition and one rule.</p>
           <ul className="mb-4 list-disc pl-4">
@@ -104,57 +105,55 @@ export default function PageHowItWorks() {
               <span className="font-bold">Rule:</span> Complete
             </li>
           </ul>
-          <hr className="my-10" />
+          <div className="my-10 opacity-30" />
 
           <div className="card relative -left-[10%] w-[120%]">
             <CodePreview>
               {`entities: [
   {
-    id: 'contract.pooltogether',
-    name: 'PoolTogether USDC Prize Pool',
-    type: 'entity.smartcontract',
-    chainId: 1,
-    address: '0x79bc8bd53244bc8a9c8c27509a2d573650a83373',
-    abi: ipfs://QmQBRgaK5TWvL8xQGkVz8YwwX4xpHTangVPEdz9NXkF39W
+    "chainId": 10,
+    "address": "0x79bc8bd53244bc8a9c8c27509a2d573650a83373",
+    "abi": "ipfs://Qmc6MHybup7ppGgUdyEcsi5jqCeTAPtcxF9wBaco56Uc1H",
+    "name": "PoolTogether USDC Prize Pool"
   }
 ]
 `}
             </CodePreview>
           </div>
-          <hr className="my-10" />
+          <div className="my-10 opacity-30" />
           <div className="card relative -left-[10%] w-[120%]">
             <CodePreview>
               {`conditions: [
     {
-      id: 'contract.deposit.condition.0',
-      eid: 'contract.pooltogether',
-      name: 'PoolTogether Optimism Deposit over 1 USDC',
-      target: 'contract.pooltogether',
-      type: 'transaction',
-      signature: 'depositTo(address,uint256)',
-      arguments: [
+      "id": "condition:depositTo:gte:100000000",
+      "eid": "0x79bc8bd53244bc8a9c8c27509a2d573650a83373",
+      "name": "PoolTogether Optimism Deposit over 1 USDC",
+      "type": "transaction",
+      "signature": "depositTo(address,uint256)",
+      "args": [
         {
-          index: 1,
-          type: 'bignumber',
-          condition: 'gte',
-          value: '41000000',
-        },
-      ],
-    },
+          "index": 1,
+          "type": "bignumber",
+          "condition": "gte",
+          "value": "10000000"
+        }
+      ]
+    }
   ],
 `}
             </CodePreview>
           </div>
-          <hr className="my-10" />
+          <div className="my-10 opacity-30" />
           <div className="card relative -left-[10%] w-[120%]">
             <CodePreview>
               {`rules: [
     {
-      id: 'contract.pool.mint.rule.0',
-      type: 'rule.smartcontract',
-      condition: 'complete',
-      targets: ['contract.deposit.condition.0'],
-    },
+      "id": "rule.complete",
+      "cid": ["condition:depositTo:gte:100000000"],
+      "operations": ["isComplete"],
+      "args": [[true]],
+      "range": [100]
+    }
   ],
 `}
             </CodePreview>

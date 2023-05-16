@@ -2,8 +2,9 @@
 
 import { CardSet } from '@/components/card-set'
 import { LinkComponent } from '@/components/shared/link-component'
+import { setDatabase } from '@/data/set-database'
 
-export default function PageHome() {
+export default function PageSets() {
   return (
     <>
       <section className="">
@@ -13,23 +14,22 @@ export default function PageHome() {
               <h1 className="mb-2 text-2xl font-medium dark:text-white sm:text-3xl">A simple approach to mapping Web3</h1>
               <div className="h-1 w-20 rounded bg-indigo-500"></div>
             </div>
-            <p className="w-full leading-relaxed lg:w-1/2 ">
-              <span className="font-bold">Web3 Set Theory is a simple approach to mapping and connecting Web3 resources.</span> The schema is an
-              entities, conditions and rules based based schema for constructing Web3 resource maps.{' '}
-              <LinkComponent className="link" href="/schema">
-                Learn more about the schema Web3 Set Theory here
-              </LinkComponent>
-              .
-            </p>
+            <div className="w-full leading-relaxed lg:w-1/2">
+              <p>
+                <span className="font-bold">Web3 Sets is a simple approach to mapping and grouping Web3 systems.</span> Everything is an Entity.
+                Entities always have predictable behaviors. Entities can be grouped into Sets.
+              </p>
+              <p className="">
+                <LinkComponent className="link" href="/how-it-works">
+                  Web3 Sets is built upon informal set theory principles.
+                </LinkComponent>
+              </p>
+            </div>
           </div>
           <div className="-m-4 flex flex-wrap">
-            <CardSet
-              href="/set/poolTogetherOptimismDeposit"
-              name="PoolTogether USDC Deposit"
-              tagline="V4"
-              description="Deposit USDC into PoolTogether V4."
-              image="/covers/set-cover-pooltogether.png"
-            />
+            {setDatabase.map((set) => (
+              <CardSet key={set.id} href={`/set/${set.id}`} name={set.name} tagline={set.version} description={set.description} image={set.image} />
+            ))}
           </div>
         </div>
       </section>

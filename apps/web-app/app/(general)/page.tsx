@@ -43,13 +43,17 @@ export default function PageHome() {
               <h1 className="mb-2 text-2xl font-medium dark:text-white sm:text-3xl">A simple approach to mapping Web3</h1>
               <div className="h-1 w-20 rounded bg-indigo-500"></div>
             </div>
-            <p className="w-full leading-relaxed lg:w-1/2 ">
-              <span className="font-bold">Web3 Sets is a simple approach to mapping and grouping Web3 systems.</span> Everything is an Entity.
-              Entities always have predictable behaviors. Entities can be grouped into Sets. Sets can be grouped into Sets.{' '}
-              <LinkComponent className="link" href="/how-it-works">
-                Web3 Sets is built upon informal set theory principles.
-              </LinkComponent>
-            </p>
+            <div className="w-full leading-relaxed lg:w-1/2">
+              <p>
+                <span className="font-bold">Web3 Sets is a simple approach to mapping and grouping Web3 systems.</span> Everything is an Entity.
+                Entities always have predictable behaviors. Entities can be grouped into Sets.
+              </p>
+              <p className="">
+                <LinkComponent className="link" href="/how-it-works">
+                  Web3 Sets is built upon informal set theory principles.
+                </LinkComponent>
+              </p>
+            </div>
           </div>
           <div className="-m-4 flex flex-wrap">
             {setDatabase.map((set) => (
