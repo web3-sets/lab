@@ -29,7 +29,7 @@ export default function PageSetContent({ id }: any) {
     <>
       <section className="w-full">
         <div className="mx-auto grid max-w-screen-xl lg:grid-cols-12 lg:gap-8 xl:gap-6">
-          <div className="lg:col-span-12">
+          <div className="lg:col-span-8">
             <h1 className="mb-4 text-4xl font-extrabold leading-none tracking-tight dark:text-white md:text-5xl xl:text-5xl">{set?.model?.name}</h1>
             <p className="mb-6 font-light leading-8 text-gray-600 dark:text-gray-400 md:text-lg lg:mb-8 lg:text-xl">{set?.model?.description}</p>
             <div className="flex gap-2">
@@ -40,6 +40,11 @@ export default function PageSetContent({ id }: any) {
                   </span>
                 ))}
             </div>
+          </div>
+          <div className="flex items-center justify-between lg:col-span-4">
+            <LinkComponent href={`${set?.url}`} className="flex items-center gap-3">
+              <img className="rounded-lg" src={set?.image} alt={set?.model?.author?.name} />
+            </LinkComponent>
           </div>
           <div className="flex items-center justify-between lg:col-span-12 lg:mt-0 lg:flex">
             <span className="flex items-center">

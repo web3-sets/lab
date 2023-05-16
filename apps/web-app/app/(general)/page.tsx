@@ -1,8 +1,8 @@
 'use client'
-
 import React from 'react'
 
 import { GithubIcon, Network } from 'lucide-react'
+import Balancer from 'react-wrap-balancer'
 
 import { CardSet } from '@/components/card-set'
 import { LinkComponent } from '@/components/shared/link-component'
@@ -15,15 +15,24 @@ export default function PageHome() {
         <div className="mx-auto grid max-w-screen-xl px-4 py-8 lg:grid-cols-12 lg:gap-8 lg:py-16 xl:gap-0">
           <div className="mr-auto place-self-center lg:col-span-7">
             <h1 className="mb-4 max-w-2xl text-4xl font-extrabold leading-none tracking-tight dark:text-white md:text-5xl xl:text-6xl">Web3 Sets</h1>
-            <p className="mb-6 max-w-2xl font-light  leading-8 dark:text-gray-400 md:text-lg lg:mb-8 lg:text-xl">
-              Web3 Sets is JSON Draft 7 schema for mapping resources across distributed systems and crafting beautiful user experience journeys.
-            </p>
+            <Balancer>
+              <p className="mb-6 max-w-2xl font-light  leading-8 dark:text-gray-400 md:text-lg lg:mb-8 lg:text-xl">
+                Web3 Sets are{' '}
+                <LinkComponent href="https://json-schema.org/draft-07/json-schema-release-notes.html" className="link">
+                  JSON Draft 7 schemas
+                </LinkComponent>{' '}
+                for mapping objects across distributed systems using{' '}
+                <LinkComponent href="https://en.wikipedia.org/wiki/Naive_set_theory" className="link">
+                  naive set theory principles.
+                </LinkComponent>
+              </p>
+            </Balancer>
             <div className="flex items-center gap-3">
-              <span className="btn btn-primary ">
+              <LinkComponent href="/set/stand-with-crypto" className="btn btn-primary ">
                 <span className="flex items-center">
-                  <Network size={18} /> <span className="ml-1">Live Example</span>
+                  <Network size={18} /> <span className="ml-1">Runtime Example</span>
                 </span>
-              </span>
+              </LinkComponent>
               <LinkComponent
                 href="https://github.com/web3-sets"
                 className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-5 py-3 text-center text-base font-medium hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-800">
@@ -118,7 +127,7 @@ export default function PageHome() {
         <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2">
             <div className="relative z-10 lg:py-16">
-              <div className="relative h-64 sm:h-80 lg:-mr-10 lg:h-full">
+              <div className="relative h-auto sm:h-80 lg:-mr-10 lg:h-full">
                 {/* <img alt="House" src="/story/light-graphic-2.png" className="absolute inset-0 h-full w-full object-cover" /> */}
                 <img className="rounded-xl border-2" src="/story/dark-graphic-4.png" alt="mockup" />
               </div>
@@ -141,9 +150,9 @@ export default function PageHome() {
                 </p>
 
                 <LinkComponent
-                  href="/playground"
+                  href="/sets"
                   className="mt-8 inline-block rounded border border-indigo-600 bg-indigo-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500">
-                  Playground
+                  Example Sets
                 </LinkComponent>
               </div>
             </div>

@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { BinaryIcon, DatabaseIcon, LayoutDashboard, LogOutIcon, Wallet } from 'lucide-react'
-import Link from 'next/link'
+import { FaCode } from 'react-icons/fa'
 
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
 import { FADE_IN_ANIMATION_SETTINGS } from '@/config/design'
@@ -8,6 +8,7 @@ import { FADE_IN_ANIMATION_SETTINGS } from '@/config/design'
 import { ButtonSIWELogin } from '../../integrations/siwe/components/button-siwe-login'
 import { ButtonSIWELogout } from '../../integrations/siwe/components/button-siwe-logout'
 import { BranchIsAuthenticated } from '../shared/branch-is-authenticated'
+import { LinkComponent } from '../shared/link-component'
 
 export function UserDropdown() {
   return (
@@ -20,22 +21,23 @@ export function UserDropdown() {
         </PopoverTrigger>
         <PopoverContent>
           <div className="w-full rounded-md p-2 ">
-            <Link className="user-dropdown-menu-item" href="/how-it-works">
-              <BinaryIcon className="h-4 w-4" />
-              <p className="text-sm">How It Works</p>
-            </Link>
-            <Link className="user-dropdown-menu-item " href="/playground">
-              <LayoutDashboard className="h-4 w-4" />
-              <p className="text-sm">Playground</p>
-            </Link>
+            <LinkComponent className="user-dropdown-menu-item" href="/how-it-works">
+              <p className="text-lg font-medium">How It Works</p>
+            </LinkComponent>
+            <LinkComponent className="user-dropdown-menu-item " href="/development">
+              <p className="text-lg font-medium">Development</p>
+            </LinkComponent>
+            <LinkComponent className="user-dropdown-menu-item " href="/sets">
+              <p className="text-lg font-medium">Sets</p>
+            </LinkComponent>
             <BranchIsAuthenticated>
               <ButtonSIWELogout className="user-dropdown-menu-item flex">
-                <LogOutIcon className="h-4 w-4" />
                 <span className="text-sm">Logout</span>
+                <LogOutIcon className="h-4 w-4" />
               </ButtonSIWELogout>
               <ButtonSIWELogin className="user-dropdown-menu-item flex">
-                <LogOutIcon className="inline-block h-4 w-4" />
                 <span className="ml-2 text-sm">Login</span>
+                <LogOutIcon className="inline-block h-4 w-4" />
               </ButtonSIWELogin>
             </BranchIsAuthenticated>
           </div>

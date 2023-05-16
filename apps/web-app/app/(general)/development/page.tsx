@@ -1,5 +1,3 @@
-import Balancer from 'react-wrap-balancer'
-
 import { CodePreview } from '@/components/code-preview'
 import { LinkComponent } from '@/components/shared/link-component'
 export default function PageHowItWorks() {
@@ -8,8 +6,13 @@ export default function PageHowItWorks() {
       <section className="content my-10 lg:my-6">
         <div className="container mx-auto max-w-2xl">
           <h3 className="text-3xl font-normal">Development</h3>
-          <p>Web3 Sets is under active development and is still considered experiment.</p>
+          <p>Web3 Sets is under active development and is still considered experimental.</p>
           <h3 className="text-2xl font-bold">Schemas</h3>
+          <p className="">
+            <span className="font-bold">Purpose:</span> The purpose of the web3 sets schemas is to create a standard for mapping and connecting
+            resources across distributed and decentralized ecosystems. Using principles from naive set theory, the schema defines a simple approach to
+            managing complex systems.
+          </p>
           <h3 className="mt-4 text-xl font-medium">Ethereum Virtual Machine</h3>
           <p>
             The Web3 Sets EVM schema is a JSON Draft 7 schema for mapping and connecting resources across distributed and decentralized ecosystems.
@@ -18,11 +21,6 @@ export default function PageHowItWorks() {
             <LinkComponent className="link" href="https://github.com/web3-sets/lab/tree/main/schemas/schema-smart-contract">
               Github Repo
             </LinkComponent>
-          </p>
-
-          <p className="">
-            <span className="font-bold">Purpose:</span> The purpose of the schema is to create a standard for mapping and connecting resources across
-            distributed and decentralized ecosystems. Using principles from naive set theory, the schema defines
           </p>
 
           <h3 className="mt-4 text-xl font-medium">Verifiable Credentials</h3>

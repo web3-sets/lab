@@ -1,7 +1,7 @@
 {
   "id": "set:pooltogether:10:usdc:prize-pool:deposit",
   "object": "set:smartcontract",
-  "name": "PoolTogether V4 PrizePool : Optimism : USDC",
+  "name": "PoolTogether $10 USDC Deposit",
   "description": "Deposit $10 USDC into the PoolTogether V4 PrizePool on the Optimism network",
   "keywords": ["pooltogether", "optimism", "usdc"],
   "tags": {

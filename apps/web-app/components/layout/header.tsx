@@ -40,9 +40,14 @@ export function Header(props: Props) {
       <ResponsiveMobileAndDesktop>
         <>
           <div className="flex w-full justify-between p-4">
-            <LinkComponent href="/" className="flex flex-1 items-center ">
-              <span className="text-5xl leading-3 lg:-mt-2">⏣</span>
-            </LinkComponent>
+            <div className="flex items-center gap-x-2">
+              <LinkComponent href="/" className="flex">
+                <span className="-mt-4 text-5xl leading-3">⏣</span>
+              </LinkComponent>
+              <LinkComponent href={`${siteConfig.links.github}`} className="-mt-2">
+                <FaGithub />
+              </LinkComponent>
+            </div>
             <div className="">
               <UserDropdown />
             </div>
