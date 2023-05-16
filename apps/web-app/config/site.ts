@@ -1,5 +1,8 @@
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 // Site
+
+import { url } from 'inspector'
+
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 interface SiteConfig {
   name: string
@@ -7,13 +10,14 @@ interface SiteConfig {
   emoji: string
   description: string
   localeDefault: string
+  url?: string
   links: {
     twitter: string
     github: string
   }
 }
 
-export const SITE_CANONICAL = 'https://web3sets.xyz'
+export const SITE_CANONICAL = 'https://www.web3sets.app'
 
 export const siteConfig: SiteConfig = {
   name: 'Web3 Sets',
@@ -21,6 +25,7 @@ export const siteConfig: SiteConfig = {
   emoji: '⏣',
   description: 'Web3 Sets is JSON Draft 7 schema for mapping resources across distributed systems.',
   localeDefault: 'en',
+  url: SITE_CANONICAL,
   links: {
     twitter: 'https://twitter.com/KamesGeraghty',
     github: 'https://github.com/web3-sets',
