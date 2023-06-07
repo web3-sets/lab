@@ -71,7 +71,7 @@
     "@wagmi/cli": "^0.1.11",
     "@web3-sets/etherscan-link": "^0.0.0",
     "@web3-sets/runtime-engine-js": "workspace:0.0.0-beta.0",
-    "@web3-sets/smart-contract-schema": "workspace:0.0.0-beta.0",
+    "@web3-sets/evm-schema": "workspace:0.0.0-beta.0",
     "@web3-sets/smart-contract-sets": "workspace:0.0.0-beta.0",
     "ajv": "^8.6.1",
     "axios": "^1.2.2",

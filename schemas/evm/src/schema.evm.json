@@ -1,8 +1,8 @@
 {
    "$schema": "http://json-schema.org/draft-07/schema#",
-   "$id": "https://github.com/metameta-protocol/metametasets-schema/src/set.smartcontract.schema.json",
-   "title": "Web3 Smart Contract Entity Set Schema",
-   "description": "A smart contract set schema for Web3 Set Theory protocol.",
+   "$id": "https://github.com/web3-sets/lab/blob/main/schemas/schema-smart-contract/src/schema.evm.json",
+   "title": "Web3 EVM Entity Set Schema",
+   "description": "An EVM set schema for Web3 Set Theory protocol.",
    "type": "object",
    "additionalProperties": true,
    "required": ["id", "name", "object", "version", "conditions", "entities", "rules"],
@@ -17,7 +17,7 @@
      },
      "object": {
        "type": "string",
-       "pattern": "^set.smartcontract$"
+       "pattern": "^set:evm$"
      },
      "version": {
        "$ref": "#/definitions/Version"

@@ -1,6 +1,6 @@
 {
   "id": "set:rainbow:finiliar:mainnet:purchase",
-  "object": "smartcontract",
+  "object": "set:evm",
   "name": "Mint Finiliar NFT by Rainbow",
   "description": "Mint the Finiliar NFT by Rainbow",
   "keywords": ["defi", "rainbow"],

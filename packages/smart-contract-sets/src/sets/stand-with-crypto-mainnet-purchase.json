@@ -1,6 +1,6 @@
 {
   "id": "set:shield:mainnet:purchase",
-  "object": "smartcontract",
+  "object": "set:evm",
   "name": "Mint Stand with Crypto NFT by Coinbase",
   "description": "Mint Stand with Crypto Shield from Coinbase on the Zora platform",
   "keywords": ["defi", "shield", "coinbase"],

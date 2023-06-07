@@ -1,4 +1,4 @@
-# Web3 Sets | Smart Contract Schema
+# EVM Schema | Web3 Sets
 
 ![CI](https://github.com/web3-sets/schema/actions/workflows/main.yml/badge.svg)
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](http://perso.crans.org/besson/LICENSE.html)

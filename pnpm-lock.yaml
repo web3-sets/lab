@@ -166,7 +166,7 @@ importers:
       '@web3-sets/runtime-engine-js':
         specifier: workspace:0.0.0-beta.0
         version: link:../../packages/runtime-engine-js
-      '@web3-sets/smart-contract-schema':
+      '@web3-sets/evm-schema':
         specifier: workspace:0.0.0-beta.0
         version: link:../../schemas/schema-smart-contract
       '@web3-sets/smart-contract-sets':

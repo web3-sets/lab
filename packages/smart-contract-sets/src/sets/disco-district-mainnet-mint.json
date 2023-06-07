@@ -1,6 +1,6 @@
 {
   "id": "set:shield:mainnet:mint",
-  "object": "smartcontract",
+  "object": "set:evm",
   "name": "Mint Disco NFT by District",
   "description": "Mint a Disco NFT from District Labs",
   "keywords": ["delegatable", "disco", "district-labs"],
