@@ -1,0 +1,43 @@
+{
+    "id": "set:identity:disconaut",
+    "object": "set:identity",
+    "name": "Minimum of 50n GMs received in 2023",
+    "description": "Checks if a minimum of 50 GMs received in 2023.",
+    "keywords": ["disco", "disconaut"],
+    "version": {
+      "major": 0,
+      "minor": 0,
+      "patch": 0
+    },
+    "entities": [
+      {
+        "type":"credential",
+        "id": "disco:credential:gm",
+        "name": "GM Credential",
+        "schema": "https://raw.githubusercontent.com/discoxyz/disco-schemas/main/json/GMCredential/1-0-0.json",
+      }
+    ],
+    "conditions": [
+      {
+        "id": "condition:issuance",
+        "eid": "disco:credential:disconaut",
+        "operations": ["issuedBy", "issuedAfter", "issuedBefore"],
+        "args": [
+            ["did:3:kjzl6cwe1jw14bfc93dsmejffll3j687kpq3te8ntmcjb98erxj9x8mdrdompf6"],
+            [1672531200],
+            [1704067200]
+        ]
+      } 
+    ],
+    "rules": [
+      {
+        "id": "rule:base",
+        "operations": ["all", "count"],
+        "args": [
+            ["condition:issuance"],
+            [["condition:issuance"], [[50]]]
+        ]
+      }
+    ]
+  }
+  
